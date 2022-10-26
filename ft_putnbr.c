@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfd.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:51:00 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/24 20:24:07 by havyilma         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:52:40 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 #include <unistd.h>
 
-void	ft_putnbr(int i)
+int	ft_putnbr(int i)
 {
+	int	count;
+	count = 0;
 	if (i < 0)
 	{
 		int	minus;
 		minus = 45;
 		write (1, &minus, 1);
 		i *= -1;
+		count++;
 	}
 	if (i > 10)
 	{
@@ -32,5 +35,7 @@ void	ft_putnbr(int i)
 	{
 		i += 48;
 		write (1, &i, 1);
+		count++;
 	}
+	return (count);
 }

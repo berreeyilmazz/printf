@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 18:51:45 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/24 19:26:00 by havyilma         ###   ########.fr       */
+/*   Created: 2022/10/23 19:11:18 by havyilma          #+#    #+#             */
+/*   Updated: 2022/10/26 22:50:52 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-#include <unistd.h>
-
-void	ft_putchar(int a)
+int	ft_putstr(char *str)
 {
-	write(1, &a, 1);
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }
