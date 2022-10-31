@@ -5,37 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 19:51:00 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/26 22:52:40 by havyilma         ###   ########.fr       */
+/*   Created: 2022/10/13 19:26:22 by havyilma          #+#    #+#             */
+/*   Updated: 2022/10/31 19:59:34 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#include <unistd.h>
-
-int	ft_putnbr(int i)
+int	ft_printdecimal(unsigned int u)
 {
-	int	count;
-	count = 0;
-	if (i < 0)
+	int	i;
+
+	i = 0;
+	if (u <= 9)
+		i += ft_putchar(u + 48);
+	else
 	{
-		int	minus;
-		minus = 45;
-		write (1, &minus, 1);
-		i *= -1;
-		count++;
+		i += ft_printdecimal(u / 10);
+		i += ft_printdecimal(u % 10);
 	}
-	if (i > 10)
+	return (i);
+}
+
+int	ft_putnbr(int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb >= 0 && nb <= 9)
+		i += ft_putchar(nb + '0');
+	else if (nb == -2147483648)
 	{
-		ft_putnbr (i / 10);
-		ft_putnbr (i % 10);
+		write(1, "-2147483648", 11);
+		return (11);
 	}
-	if (i >= 0 && i <= 9)
+	else if (nb < 0)
 	{
-		i += 48;
-		write (1, &i, 1);
-		count++;
+		i += ft_putchar('-');
+		i += ft_putnbr(nb * (-1));
 	}
-	return (count);
+	else
+	{
+		i += ft_putnbr(nb / 10);
+		i += ft_putnbr(nb % 10);
+	}
+	return (i);
 }

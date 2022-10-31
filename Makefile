@@ -6,11 +6,12 @@
 #    By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 20:33:36 by havyilma          #+#    #+#              #
-#    Updated: 2022/10/26 22:54:23 by havyilma         ###   ########.fr        #
+#    Updated: 2022/10/31 20:09:09 by havyilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= ft_printf.c ft_printfdecimal.c ft_printfhexa.c ft_putnbr.c ft_putstr.c
+SRCS			= ft_printf.c ft_printhexa.c ft_putnbr.c ft_putstr.c ft_printdecimal.c
+
 OBJS			= $(SRCS:.c=.o)
 
 CC				= gcc
@@ -22,7 +23,7 @@ NAME			= libftprintf.a
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar r $(NAME) $(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
@@ -30,6 +31,6 @@ clean:
 fclean:			clean
 				$(RM) $(NAME)
 
-re:				fclean all
+re:				fclean $(NAME)
 
 .PHONY:			all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 19:22:33 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/26 22:50:47 by havyilma         ###   ########.fr       */
+/*   Updated: 2022/10/31 19:44:16 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,41 @@ int	ft_printlower(unsigned long a)
 	i = 0;
 	if (a > 15)
 	{
-		ft_printx(a / 16);
-		ft_printx(a % 16);
+		i += ft_printlower(a / 16);
+		i += ft_printlower(a % 16);
 	}
 	if (a >= 10 && a <= 15)
 	{
 		a = a + 87;
-		ft_putchar(a);
-		i += 1;
+		i = ft_putchar(a);
 	}
 	if (a >= 0 && a <= 9)
 	{
 		a = a + 48;
-		ft_putchar(a);
-		i += 1;
+		i = ft_putchar(a);
 	}
 	return (i);
 }
 
 int	ft_printupper(unsigned long a)
 {
+	int	i;
+
+	i = 0;
 	if (a > 15)
 	{
-		ft_printxx(a / 16);
-		ft_printxx(a % 16);
+		i += ft_printupper(a / 16);
+		i += ft_printupper(a % 16);
 	}
 	if (a >= 10 && a <= 15)
 	{
 		a = a + 55;
-		ft_putchar(a);
+		i += ft_putchar(a);
 	}
 	if (a >= 0 && a <= 9)
 	{
 		a = a + 48;
-		ft_putchar(a);
+		i += ft_putchar(a);
 	}
-	return (0);
+	return (i);
 }
