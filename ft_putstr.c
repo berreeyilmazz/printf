@@ -6,7 +6,7 @@
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 19:11:18 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/31 17:19:01 by havyilma         ###   ########.fr       */
+/*   Updated: 2022/10/31 22:37:18 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strlen(char *tab)
 	i = 0;
 	while (tab[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	ft_putstr(char *str)

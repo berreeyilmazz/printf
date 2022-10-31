@@ -6,7 +6,7 @@
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:25:23 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/31 20:00:49 by havyilma         ###   ########.fr       */
+/*   Updated: 2022/10/31 22:34:26 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_formatter(char t, va_list arg)
 {
 	int	i;
-	i = 0;
 
+	i = 0;
 	if (t == 'c')
 		i += ft_putchar (va_arg (arg, int));
 	if (t == 's')
@@ -39,14 +39,14 @@ int	ft_formatter(char t, va_list arg)
 	return (i);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int	i;
-	int	j;
+	va_list	lst;
+	int		i;
+	int		j;
 
 	j = 0;
 	i = 0;
-	va_list	lst;
 	va_start(lst, str);
 	while (str[i])
 	{
