@@ -6,7 +6,7 @@
 /*   By: havyilma <havyilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 19:09:02 by havyilma          #+#    #+#             */
-/*   Updated: 2022/10/31 22:36:38 by havyilma         ###   ########.fr       */
+/*   Updated: 2022/11/09 16:50:45 by havyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-int	ft_printf(const char *str, ...);
-int	ft_formatter(char t, va_list arg);
-int	ft_putchar(int a);
-int	ft_printdecimal(unsigned int i);
-int	ft_printlower(unsigned long a);
-int	ft_printupper(unsigned long a);
-int	ft_putstr(char *str);
-int	ft_strlen(char *tab);
-int	ft_putnbr(int nb);
+int		ft_printf(const char *str, ...);
+int		ft_formatter(char t, va_list arg);
+int		ft_putchar(int a);
+int		ft_printdecimal(unsigned int i);
+int		ft_printlower(unsigned long a);
+int		ft_printupper(unsigned long a);
+int		ft_putstr(char *str);
+int		ft_strlen(char *tab);
+int		ft_putnbr(int nb);
 #endif
